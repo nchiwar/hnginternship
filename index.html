@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Card</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f0f2f5;
+      padding: 1rem;
+    }
+
+    .profile-card {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      max-width: 800px;
+      width: 100%;
+      display: flex;
+      flex-direction: row; /* Changed to row for landscape */
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    figure img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #e0e0e0;
+      background-color: #e9ecef; /* Placeholder background */
+    }
+
+    .profile-card > div {
+      flex: 1;
+    }
+
+    header h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 0.5rem;
+    }
+
+    p[data-testid="test-user-bio"] {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #606060;
+      overflow-wrap: break-word;
+    }
+
+    time[data-testid="test-user-time"] {
+      font-size: 0.85rem;
+      color: #757575;
+      background: #e9ecef;
+      padding: 0.25rem 0.5rem;
+      border-radius: 12px;
+      display: inline-block;
+    }
+
+    nav[data-testid="test-user-social-links"] {
+      display: flex;
+      gap: 0.75rem;
+      margin: 1rem 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #757575;
+      font-size: 1.2rem;
+      transition: color 0.2s;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      color: #1a73e8;
+      outline: none;
+    }
+
+    section h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 0.75rem;
+    }
+
+    section ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    section li {
+      font-size: 0.9rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 12px;
+      background: linear-gradient(90deg, #6b48ff, #a066ff);
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+
+    section[data-testid="test-user-dislikes"] li {
+      background: #e9ecef;
+      color: #1a1a1a;
+    }
+
+    @media (max-width: 600px) {
+      .profile-card {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      figure {
+        margin-bottom: 1rem;
+      }
+
+      figure img {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <article data-testid="test-profile-card" class="profile-card">
+    <figure>
+      <img data-testid="test-user-avatar" src="https://via.placeholder.com/120" alt="Nehe's profile picture">
+    </figure>
+    <div>
+      <header>
+        <h2 data-testid="test-user-name" aria-label="User name">Nehemiah Yusuf</h2>
+      </header>
+      <p data-testid="test-user-bio">
+        Full-stack developer passionate about creating elegant solutions to complex problems. I love building accessible, user-friendly applications that make a difference.
+      </p>
+      <time data-testid="test-user-time">0</time>
+      <nav data-testid="test-user-social-links">
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" data-testid="test-user-social-github"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" data-testid="test-user-social-linkedin"><i class="fab fa-linkedin"></i></a>
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" data-testid="test-user-social-twitter"><i class="fab fa-twitter"></i></a>
+        <a href="mailto:nehe@example.com" target="_blank" rel="noopener noreferrer" data-testid="test-user-social-email"><i class="fas fa-envelope"></i></a>
+        <a href="https://example.com" target="_blank" rel="noopener noreferrer" data-testid="test-user-social-globe"><i class="fas fa-globe"></i></a>
+      </nav>
+      <section>
+        <h3>Hobbies</h3>
+        <ul data-testid="test-user-hobbies">
+          <li>Photography</li>
+          <li>Reading</li>
+          <li>Hiking</li>
+          <li>Coding</li>
+          <li>Music</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Dislikes</h3>
+        <ul data-testid="test-user-dislikes">
+          <li>Traffic</li>
+          <li>Spam emails</li>
+          <li>Cold coffee</li>
+          <li>Loud noises</li>
+        </ul>
+      </section>
+    </div>
+  </article>
+  <script>
+    function updateTime() {
+      const timeElement = document.querySelector('[data-testid="test-user-time"]');
+      timeElement.textContent = Date.now();
+    }
+
+    updateTime();
+    setInterval(updateTime, 1000);
+  </script>
+</body>
+</html>

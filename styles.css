@@ -1,0 +1,113 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+  padding: 1rem;
+}
+
+.profile-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+header h2 {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+figure img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+p[data-testid="test-user-bio"] {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #555;
+  word-wrap: break-word;
+}
+
+time[data-testid="test-user-time"] {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #1a73e8;
+  font-weight: bold;
+}
+
+nav a:hover,
+nav a:focus {
+  text-decoration: underline;
+  outline: 2px solid #1a73e8;
+  outline-offset: 2px;
+}
+
+section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+section ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+}
+
+section li {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Responsive Design */
+@media (min-width: 600px) {
+  .profile-card {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  figure {
+    flex: 0 0 auto;
+    margin-right: 1.5rem;
+  }
+
+  figure img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .profile-card > *:not(figure) {
+    flex: 1;
+  }
+}
+
+/* Handle long text */
+p[data-testid="test-user-bio"] {
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
