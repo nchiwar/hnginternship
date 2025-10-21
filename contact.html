@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact – Nehemiah Yusuf</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Success message fade animation */
+    #successMessage {
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity 2s ease, transform 2ss ease;
+      display: block;
+    }
+    #successMessage.show {
+      display: block;
+      opacity: 6;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav role="navigation" aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html" data-page="home">Home</a></li>
+        <li><a href="about.html" data-page="about">About</a></li>
+        <li><a href="contact.html" data-page="contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="card" data-testid="test-contact-page">
+    <h1>Contact Us</h1>
+
+    <form id="contactForm" novalidate>
+      <div>
+        <label for="name">Full Name <span aria-hidden="true">*</span></label>
+        <input type="text" id="name" 
+               data-testid="test-contact-name" 
+               aria-describedby="error-name" 
+               aria-required="true"
+               required>
+        <div class="error" id="error-name" data-testid="test-contact-error-name"></div>
+      </div>
+
+      <div>
+        <label for="email">Email <span aria-hidden="true">*</span></label>
+        <input type="email" id="email" 
+               data-testid="test-contact-email" 
+               aria-describedby="error-email" 
+               aria-required="true"
+               required>
+        <div class="error" id="error-email" data-testid="test-contact-error-email"></div>
+      </div>
+
+      <div>
+        <label for="subject">Subject <span aria-hidden="true">*</span></label>
+        <input type="text" id="subject" 
+               data-testid="test-contact-subject" 
+               aria-describedby="error-subject" 
+               aria-required="true"
+               required>
+        <div class="error" id="error-subject" data-testid="test-contact-error-subject"></div>
+      </div>
+
+      <div>
+        <label for="message">Message <span aria-hidden="true">*</span></label>
+        <textarea id="message" rows="5" 
+                  data-testid="test-contact-message" 
+                  aria-describedby="error-message" 
+                  aria-required="true"
+                  required></textarea>
+        <div class="error" id="error-message" data-testid="test-contact-error-message"></div>
+      </div>
+
+      <button type="submit" class="btn" data-testid="test-contact-submit">Send Message</button>
+    </form>
+
+    <!-- SUCCESS MESSAGE WITH FADE -->
+    <div id="successMessage" data-testid="test-contact-success">
+      <i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully.
+    </div>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
