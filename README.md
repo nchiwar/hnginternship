@@ -1,7 +1,7 @@
 # HNG Internship – Stage 1
 
 ## Live URL
-[https://your-name-hng.netlify.app](https://your-name-hng.netlify.app)
+https://github.com/nchiwar/hnginternship.git
 
 ## Pages
 - **Home**: Profile Card (`index.html`)
